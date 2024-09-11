@@ -9,28 +9,35 @@ import Link from "next/link"
 export function PazEnCsjb() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const navItems = [
+    { name: "Inicio", href: "#inicio" },
+    { name: "Mural", href: "#mural" },
+    { name: "Programa", href: "#programa" },
+    { name: "Video", href: "#video" }
+  ]
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Navbar */}
-      <nav className="bg-white shadow-md">
+      <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="flex items-center space-x-2">
-              <img src="/placeholder.svg?height=40&width=40&text=CSJB" alt="Colegio San José Logo" className="h-10" />
+              <img src="https://media.discordapp.net/attachments/893872429779279962/1283472736810963026/ESCUDO_COLEGIO_SAN_JOSE_PNG.png?ex=66e31ea2&is=66e1cd22&hm=7134e8c708c61c109dce666e5f8190c5c3b1f41935d0cbcd7bdb424153646eef&=&format=webp&quality=lossless" alt="Colegio San José Logo" className="h-20 w-20" />
               <div>
                 <span className="text-2xl font-bold text-blue-900">Colegio San José</span>
                 <span className="block text-sm text-gray-600">Barranquilla</span>
               </div>
             </Link>
             <div className="hidden md:flex items-center space-x-6">
-              {["Inicio", "Galeria", "Video", "Programas"].map((item) => (
-                <Link 
-                  key={item} 
-                  href="#" 
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
                   className="text-gray-700 hover:text-blue-900 transition duration-300"
                 >
-                  {item}
-                </Link>
+                  {item.name}
+                </a>
               ))}
             </div>
             <button 
@@ -42,14 +49,15 @@ export function PazEnCsjb() {
           </div>
           {isMenuOpen && (
             <div className="md:hidden pb-4">
-              {["Inicio", "Galeria", "Video", "Programas"].map((item) => (
-                <Link 
-                  key={item} 
-                  href="#" 
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
                   className="block py-2 text-gray-700 hover:text-blue-900 transition duration-300"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
-                </Link>
+                  {item.name}
+                </a>
               ))}
             </div>
           )}
@@ -57,16 +65,30 @@ export function PazEnCsjb() {
       </nav>
 
       {/* Hero Section */}
-      <div className="bg-blue-900 text-white py-20">
+      <div id="inicio" className="bg-blue-900 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Paz en Colegio San José de Barranquilla</h1>
           <p className="text-xl mb-8">Formando líderes para un mundo mejor</p>
-          <img src="/placeholder.svg?height=80&width=80&text=CSJB" alt="Colegio San José Logo" className="mx-auto h-20" />
+          <img src="https://media.discordapp.net/attachments/893872429779279962/1283472736810963026/ESCUDO_COLEGIO_SAN_JOSE_PNG.png?ex=66e31ea2&is=66e1cd22&hm=7134e8c708c61c109dce666e5f8190c5c3b1f41935d0cbcd7bdb424153646eef&=&format=webp&quality=lossless" alt="Colegio San José Logo" className="mx-auto h-25 w-25" />
         </div>
       </div>
 
       {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 py-12">
+        {/* Modified Section: Nuestro mural de la paz */}
+        <section id="mural" className="mb-16">
+          <div className="relative w-full h-[400px] md:h-[600px] rounded-lg overflow-hidden group">
+            <img 
+              src="" 
+              alt="Nuestro mural de la paz" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-opacity duration-300 group-hover:bg-opacity-0">
+              <h2 className="text-4xl md:text-5xl font-bold text-white text-center transition-opacity duration-300 group-hover:opacity-0">Nuestro mural de la paz</h2>
+            </div>
+          </div>
+        </section>
+
         {/* Vision de Paz */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Nuestra Visión de Paz</h2>
@@ -120,7 +142,7 @@ export function PazEnCsjb() {
         </section>
 
         {/* Programas de Paz */}
-        <section className="mb-16">
+        <section id="programa" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Programas de Paz</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -150,7 +172,7 @@ export function PazEnCsjb() {
         </section>
 
         {/* Video Section */}
-        <section className="mb-16">
+        <section id="video" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Nuestro Mensaje de Paz</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
@@ -188,10 +210,13 @@ export function PazEnCsjb() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Enlaces Rápidos</h3>
               <ul className="space-y-2">
-                <li><Link href="#" className="hover:text-blue-200">Inicio</Link></li>
-                <li><Link href="#" className="hover:text-blue-200">Galeria</Link></li>
-                <li><Link href="#" className="hover:text-blue-200">Video</Link></li>
-                <li><Link href="#" className="hover:text-blue-200">Programas</Link></li>
+                {navItems.map((item) => (
+                  <li key={item.name}>
+                    <a href={item.href} className="hover:text-blue-200">
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
