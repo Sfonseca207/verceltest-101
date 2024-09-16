@@ -23,7 +23,7 @@ export function PazEnCsjb() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <Link href="/" className="flex items-center space-x-2">
-              <img src="https://media.discordapp.net/attachments/893872429779279962/1283472736810963026/ESCUDO_COLEGIO_SAN_JOSE_PNG.png?ex=66e31ea2&is=66e1cd22&hm=7134e8c708c61c109dce666e5f8190c5c3b1f41935d0cbcd7bdb424153646eef&=&format=webp&quality=lossless" alt="Colegio San José Logo" className="h-20 w-20" />
+              <img src="/images/escudo_colegio.png" alt="Colegio San José Logo" className="h-20 w-20" />
               <div>
                 <span className="text-2xl font-bold text-blue-900">Colegio San José</span>
                 <span className="block text-sm text-gray-600">Barranquilla</span>
@@ -69,7 +69,7 @@ export function PazEnCsjb() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Paz en Colegio San José de Barranquilla</h1>
           <p className="text-xl mb-8">Formando líderes para un mundo mejor</p>
-          <img src="https://media.discordapp.net/attachments/893872429779279962/1283472736810963026/ESCUDO_COLEGIO_SAN_JOSE_PNG.png?ex=66e31ea2&is=66e1cd22&hm=7134e8c708c61c109dce666e5f8190c5c3b1f41935d0cbcd7bdb424153646eef&=&format=webp&quality=lossless" alt="Colegio San José Logo" className="mx-auto h-25 w-25" />
+           <img src="/images/escudo_colegio.png" alt="Colegio San José Logo" className="mx-auto h-25 w-25" />
         </div>
       </div>
 
@@ -79,7 +79,7 @@ export function PazEnCsjb() {
         <section id="mural" className="mb-16">
           <div className="relative w-full h-[400px] md:h-[600px] rounded-lg overflow-hidden group">
             <img 
-              src="" 
+              src="/images/placeholder.svg" 
               alt="Nuestro mural de la paz" 
               className="w-full h-full object-cover"
             />
@@ -130,7 +130,7 @@ export function PazEnCsjb() {
             ].map((alt, index) => (
               <div key={index} className="relative aspect-square rounded-lg overflow-hidden group">
                 <img 
-                  src={`/placeholder.svg?height=300&width=300&text=${alt.replace(' ', '+')}`}
+                  src={`/images/placeholder.svg?height=300&width=300&text=${alt.replace(' ', '+')}`}
                   alt={alt}
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
                 />
@@ -175,8 +175,14 @@ export function PazEnCsjb() {
         <section id="video" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Nuestro Mensaje de Paz</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-              <p className="text-gray-600">Video placeholder</p>
+            <div key="0" className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden group">
+              <img 
+                src="/images/placeholder.svg?height=300&width=300&text=Peace+Video"
+                alt="Peace Video"
+                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Video placeholder</p>
             </div>
             <div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">Construyendo un Futuro de Paz</h3>
@@ -229,7 +235,25 @@ export function PazEnCsjb() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-blue-800 text-center">
-            <p>&copy; 2023 Colegio San José de Barranquilla. Todos los derechos reservados.</p>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <p>Pagina creada por los estudiantes:</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link
+                  href="https://github.com/LRoenes"
+                  className="inline-flex items-center px-3 py-1 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors"
+                >
+                  <span className="font-medium mr-2">Luis Roenes Soto</span>
+                  <img src="/images/github.svg" className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="https://github.com/Sfonseca207"
+                  className="inline-flex items-center px-3 py-1 rounded-full bg-green-600 hover:bg-green-700 transition-colors"
+                >
+                  <span className="font-medium mr-2">Samuel Elias Fonseca</span>
+                  <img src="/images/github.svg" className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
