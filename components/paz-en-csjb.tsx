@@ -90,8 +90,8 @@ export function PazEnCsjb() {
         <section id="mural" className="mb-16">
           <div className="relative w-full h-[400px] md:h-[600px] rounded-lg overflow-hidden group">
             <img 
-              src="/images/placeholder.svg" 
-              alt="Nuestro mural de la paz" 
+              src="/images/collage.png" 
+              alt="Mural de la paz" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-opacity duration-300 group-hover:bg-opacity-0">
