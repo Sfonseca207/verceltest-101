@@ -4,8 +4,21 @@ import { useState } from 'react'
 import { Mail, Phone, MapPin, Menu, X } from "lucide-react"
 import Link from "next/link"
 
+type ImageData = [string, string];
+
 export function PazEnCsjb() {
+  const imagesInfo: ImageData[] =[
+    ["Elias Raad", "elias_raad.bmp"],
+    ["Catalina Costa", "catalina_costa_silva.bmp"],
+    ["Luisa Fernanda", "illera_mora.png"],
+    ["Johana Nieto", "johana_nieto_peña.png"],
+    ["Luis Angel Serna", "luis_angel_serna.bmp"],
+    ["Emanuel Vasquez", "emanuel_vasquez_quintero.png"],
+    ["Juan Delgadillo", "juan_delgadillo.jpg"],
+    ["Becca", "becca.jpg"]
+  ]
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null)
 
   const navItems = [
     { name: "Inicio", href: "#inicio" },
@@ -116,29 +129,49 @@ export function PazEnCsjb() {
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Galería de Paz</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "Estudiantes en diálogo",
-              "Proyecto comunitario",
-              "Celebración cultural",
-              "Meditación grupal",
-              "Taller de resolución de conflictos",
-              "Actividad ecológica",
-              "Mural de la paz",
-              "Intercambio estudiantil"
-            ].map((alt, index) => (
-              <div key={index} className="relative aspect-square rounded-lg overflow-hidden group">
+            {imagesInfo.map((image, index) => (
+              <div
+               key={index}
+               className="relative aspect-square rounded-lg overflow-hidden group"
+               onClick={() => setSelectedImage(image)}
+               >
                 <img 
-                  src={`/images/placeholder.svg?height=300&width=300&text=${alt.replace(' ', '+')}`}
-                  alt={alt}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                  src={`/images/${image[1]}`}
+                  alt={image[0]}
+                  className="object-cover h-fit w-fit transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{alt}</p>
+                <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{image[0]}</p>
               </div>
             ))}
           </div>
+          {selectedImage && (
+            <div 
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div 
+                className="bg-white p-4 rounded-lg max-w-3xl max-h-[90vh] overflow-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold">{selectedImage[0]}</h3>
+                  <button 
+                    onClick={() => setSelectedImage(null)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+                <img 
+                  src={`/images/${selectedImage[1]}`}
+                  alt={selectedImage[0]}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          )}
         </section>
-
         {/* Programas de Paz */}
         <section id="programa" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Programas de Paz</h2>
