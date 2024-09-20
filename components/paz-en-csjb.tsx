@@ -236,11 +236,11 @@ export function PazEnCsjb() {
               <h3 className="text-xl font-semibold mb-4">Colegio San José</h3>
               <p className="mb-4">Educando para la paz y un futuro brillante en el corazón de Barranquilla.</p>
               <div className="flex items-center space-x-4">
-                <a href="tel:+5753598520" className="flex items-center text-sm">
-                  <Phone className="w-4 h-4 mr-1" /> (+57) 5 3598520
+                <a href="tel:6053670600" className="flex items-center text-sm">
+                  <Phone className="w-4 h-4 mr-1" /> 6053670600
                 </a>
-                <a href="mailto:info@colsanjose.edu.co" className="flex items-center text-sm">
-                  <Mail className="w-4 h-4 mr-1" /> info@colsanjose.edu.co
+                <a href="mailto:pastoral@colsanjose.edu.co" className="flex items-center text-sm">
+                  <Mail className="w-4 h-4 mr-1" /> pastoral@colsanjose.edu.co
                 </a>
               </div>
             </div>
@@ -259,8 +259,8 @@ export function PazEnCsjb() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Contáctanos</h3>
               <ul className="space-y-2">
-                <li className="flex items-center"><Phone className="mr-2 h-5 w-5" /> (+57) 5 3598520</li>
-                <li className="flex items-center"><Mail className="mr-2 h-5 w-5" /> info@colsanjose.edu.co</li>
+                <li className="flex items-center"><Phone className="mr-2 h-5 w-5" /> 6053670600</li>
+                <li className="flex items-center"><a href='mailto:pastoral@colsanjose.edu.co' className='flex items-center text-sm'><Mail className="mr-2 h-5 w-5" /> pastoral@colsanjose.edu.co</a></li>
                 <li className="flex items-center"><MapPin className="mr-2 h-5 w-5" /> Calle 66 No. 42 - 45, Barranquilla, Colombia</li>
               </ul>
             </div>
