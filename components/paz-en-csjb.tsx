@@ -207,18 +207,17 @@ export function PazEnCsjb() {
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Nuestro Mensaje de Paz</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div key="0" className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden group">
-              <img 
-                src="/images/placeholder.svg?height=300&width=300&text=Peace+Video"
-                alt="Peace Video"
-                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-              <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Video placeholder</p>
+              <iframe
+                loading="lazy" 
+                //className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                className="object-cover w-full h-full transition-transform duration-300"
+                src="https://www.canva.com/design/DAGS0sBPUyM/i6vmV--bLoWgSAJZIeXkTQ/watch?embed" allow="fullscreen">
+              </iframe> 
             </div>
             <div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">Construyendo un Futuro de Paz</h3>
               <p className="text-gray-700 mb-4">
-                En este video, nuestros estudiantes y profesores comparten sus experiencias y reflexiones sobre cómo estamos construyendo una cultura de paz en el Colegio San José de Barranquilla.
+                En este video, nuestros estudiantes y profesores se muestran las experiencias y actividades realizadas por los estudiantes y profesores para construir una cultura de paz en el Colegio San José de Barranquilla.
               </p>
               <p className="text-gray-700">
                 Descubre cómo nuestros programas y actividades están formando a la próxima generación de líderes comprometidos con la paz y el cambio positivo en nuestra comunidad y más allá.
