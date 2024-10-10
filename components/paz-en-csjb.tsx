@@ -241,7 +241,7 @@ export function PazEnCsjb() {
             <div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">Promoviendo la Paz en Nuestra Comunidad</h3>
               <p className="text-gray-700 mb-4">
-                En este video, nuestros estudiantes se organizaron para capturar un momento significativo desde el aire. Utilizando un dron, se grabaron formando la palabra "PAZ" en la cancha del colegio, mostrando su compromiso con la cultura de paz.
+                En este video, nuestros estudiantes se organizaron para capturar un momento significativo desde el aire. Utilizando un dron, se grabaron formando la palabra PAZ en el patio del colegio, mostrando su compromiso con la cultura de paz.
               </p>
               <p className="text-gray-700">
                 Esta actividad refleja cómo trabajamos juntos, impulsados por nuestros valores, para transmitir un mensaje de unión y esperanza tanto dentro como fuera de nuestra comunidad.
