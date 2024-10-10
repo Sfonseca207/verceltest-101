@@ -206,14 +206,17 @@ export function PazEnCsjb() {
         <section id="video" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Nuestro Mensaje de Paz</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* First Video */}
             <div key="0" className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden group">
               <iframe
-                loading="lazy" 
-                //className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                loading="lazy"
                 className="object-cover w-full h-full transition-transform duration-300"
-                src="https://www.canva.com/design/DAGS0sBPUyM/i6vmV--bLoWgSAJZIeXkTQ/watch?embed" allow="fullscreen">
-              </iframe> 
+                src="https://www.canva.com/design/DAGS0sBPUyM/i6vmV--bLoWgSAJZIeXkTQ/watch?embed"
+                allow="fullscreen"
+              ></iframe>
             </div>
+
+            {/* First Video Description */}
             <div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">Construyendo un Futuro de Paz</h3>
               <p className="text-gray-700 mb-4">
@@ -221,6 +224,27 @@ export function PazEnCsjb() {
               </p>
               <p className="text-gray-700">
                 Descubre cómo nuestros programas y actividades están formando a la próxima generación de líderes comprometidos con la paz y el cambio positivo en nuestra comunidad y más allá.
+              </p>
+            </div>
+
+            {/* Second Video */}
+            <div key="1" className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden group">
+              <iframe
+                loading="lazy"
+                className="object-cover w-full h-full transition-transform duration-300"
+                src="https://www.youtube.com/embed/LT_6MAXfy5k"
+                allow="fullscreen"
+              ></iframe>
+            </div>
+
+            {/* Second Video Description */}
+            <div>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">Promoviendo la Paz en Nuestra Comunidad</h3>
+              <p className="text-gray-700 mb-4">
+                En este video, nuestros estudiantes se organizaron para capturar un momento significativo desde el aire. Utilizando un dron, se grabaron formando la palabra "PAZ" en la cancha del colegio, mostrando su compromiso con la cultura de paz.
+              </p>
+              <p className="text-gray-700">
+                Esta actividad refleja cómo trabajamos juntos, impulsados por nuestros valores, para transmitir un mensaje de unión y esperanza tanto dentro como fuera de nuestra comunidad.
               </p>
             </div>
           </div>
