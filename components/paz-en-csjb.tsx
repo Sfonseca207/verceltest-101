@@ -1,13 +1,24 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Mail, Phone, MapPin, Menu, X } from "lucide-react"
 import Link from "next/link"
 
+type ImageData = [string, string];
+
 export function PazEnCsjb() {
+  const imagesInfo: ImageData[] =[
+    ["Elias Raad", "elias_raad.bmp"],
+    ["Catalina Costa", "catalina_costa_silva.bmp"],
+    ["Luisa Fernanda", "illera_mora.png"],
+    ["Johana Nieto", "johana_nieto_peña.png"],
+    ["Luis Angel Serna", "luis_angel_serna.bmp"],
+    ["Emanuel Vasquez", "emanuel_vasquez_quintero.png"],
+    ["Juan Delgadillo", "juan_delgadillo.jpg"],
+    ["Becca", "becca.jpg"]
+  ]
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null)
 
   const navItems = [
     { name: "Inicio", href: "#inicio" },
@@ -79,8 +90,8 @@ export function PazEnCsjb() {
         <section id="mural" className="mb-16">
           <div className="relative w-full h-[400px] md:h-[600px] rounded-lg overflow-hidden group">
             <img 
-              src="/images/placeholder.svg" 
-              alt="Nuestro mural de la paz" 
+              src="/images/collage.png" 
+              alt="Mural de la paz" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center transition-opacity duration-300 group-hover:bg-opacity-0">
@@ -118,29 +129,49 @@ export function PazEnCsjb() {
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Galería de Paz</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "Estudiantes en diálogo",
-              "Proyecto comunitario",
-              "Celebración cultural",
-              "Meditación grupal",
-              "Taller de resolución de conflictos",
-              "Actividad ecológica",
-              "Mural de la paz",
-              "Intercambio estudiantil"
-            ].map((alt, index) => (
-              <div key={index} className="relative aspect-square rounded-lg overflow-hidden group">
+            {imagesInfo.map((image, index) => (
+              <div
+               key={index}
+               className="relative aspect-square rounded-lg overflow-hidden group"
+               onClick={() => setSelectedImage(image)}
+               >
                 <img 
-                  src={`/images/placeholder.svg?height=300&width=300&text=${alt.replace(' ', '+')}`}
-                  alt={alt}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                  src={`/images/${image[1]}`}
+                  alt={image[0]}
+                  className="object-cover h-fit w-fit transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{alt}</p>
+                <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">{image[0]}</p>
               </div>
             ))}
           </div>
+          {selectedImage && (
+            <div 
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+              onClick={() => setSelectedImage(null)}
+            >
+              <div 
+                className="bg-white p-4 rounded-lg max-w-3xl max-h-[90vh] overflow-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold">{selectedImage[0]}</h3>
+                  <button 
+                    onClick={() => setSelectedImage(null)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+                <img 
+                  src={`/images/${selectedImage[1]}`}
+                  alt={selectedImage[0]}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          )}
         </section>
-
         {/* Programas de Paz */}
         <section id="programa" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Programas de Paz</h2>
@@ -175,22 +206,45 @@ export function PazEnCsjb() {
         <section id="video" className="mb-16">
           <h2 className="text-3xl font-bold text-blue-900 mb-6">Nuestro Mensaje de Paz</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* First Video */}
             <div key="0" className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden group">
-              <img 
-                src="/images/placeholder.svg?height=300&width=300&text=Peace+Video"
-                alt="Peace Video"
-                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-              <p className="absolute bottom-2 left-2 right-2 text-white text-center text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Video placeholder</p>
+              <iframe
+                loading="lazy"
+                className="object-cover w-full h-full transition-transform duration-300"
+                src="https://www.canva.com/design/DAGS0sBPUyM/i6vmV--bLoWgSAJZIeXkTQ/watch?embed"
+                allow="fullscreen"
+              ></iframe>
             </div>
+
+            {/* First Video Description */}
             <div>
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">Construyendo un Futuro de Paz</h3>
               <p className="text-gray-700 mb-4">
-                En este video, nuestros estudiantes y profesores comparten sus experiencias y reflexiones sobre cómo estamos construyendo una cultura de paz en el Colegio San José de Barranquilla.
+                En este video, nuestros estudiantes y profesores se muestran las experiencias y actividades realizadas por los estudiantes y profesores para construir una cultura de paz en el Colegio San José de Barranquilla.
               </p>
               <p className="text-gray-700">
                 Descubre cómo nuestros programas y actividades están formando a la próxima generación de líderes comprometidos con la paz y el cambio positivo en nuestra comunidad y más allá.
+              </p>
+            </div>
+
+            {/* Second Video */}
+            <div key="1" className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden group">
+              <iframe
+                loading="lazy"
+                className="object-cover w-full h-full transition-transform duration-300"
+                src="https://www.youtube.com/embed/LT_6MAXfy5k"
+                allow="fullscreen"
+              ></iframe>
+            </div>
+
+            {/* Second Video Description */}
+            <div>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">Promoviendo la Paz en Nuestra Comunidad</h3>
+              <p className="text-gray-700 mb-4">
+                En este video, nuestros estudiantes se organizaron para capturar un momento significativo desde el aire. Utilizando un dron, se grabaron formando la palabra PAZ en el patio del colegio, mostrando su compromiso con la cultura de paz.
+              </p>
+              <p className="text-gray-700">
+                Esta actividad refleja cómo trabajamos juntos, impulsados por nuestros valores, para transmitir un mensaje de unión y esperanza tanto dentro como fuera de nuestra comunidad.
               </p>
             </div>
           </div>
@@ -205,11 +259,11 @@ export function PazEnCsjb() {
               <h3 className="text-xl font-semibold mb-4">Colegio San José</h3>
               <p className="mb-4">Educando para la paz y un futuro brillante en el corazón de Barranquilla.</p>
               <div className="flex items-center space-x-4">
-                <a href="tel:+5753598520" className="flex items-center text-sm">
-                  <Phone className="w-4 h-4 mr-1" /> (+57) 5 3598520
+                <a href="tel:6053670600" className="flex items-center text-sm">
+                  <Phone className="w-4 h-4 mr-1" /> 6053670600
                 </a>
-                <a href="mailto:info@colsanjose.edu.co" className="flex items-center text-sm">
-                  <Mail className="w-4 h-4 mr-1" /> info@colsanjose.edu.co
+                <a href="mailto:pastoral@colsanjose.edu.co" className="flex items-center text-sm">
+                  <Mail className="w-4 h-4 mr-1" /> pastoral@colsanjose.edu.co
                 </a>
               </div>
             </div>
@@ -228,8 +282,8 @@ export function PazEnCsjb() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Contáctanos</h3>
               <ul className="space-y-2">
-                <li className="flex items-center"><Phone className="mr-2 h-5 w-5" /> (+57) 5 3598520</li>
-                <li className="flex items-center"><Mail className="mr-2 h-5 w-5" /> info@colsanjose.edu.co</li>
+                <li className="flex items-center"><Phone className="mr-2 h-5 w-5" /> 6053670600</li>
+                <li className="flex items-center"><a href='mailto:pastoral@colsanjose.edu.co' className='flex items-center text-sm'><Mail className="mr-2 h-5 w-5" /> pastoral@colsanjose.edu.co</a></li>
                 <li className="flex items-center"><MapPin className="mr-2 h-5 w-5" /> Calle 66 No. 42 - 45, Barranquilla, Colombia</li>
               </ul>
             </div>
